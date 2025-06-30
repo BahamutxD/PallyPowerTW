@@ -44,6 +44,8 @@ PP_PerUser = {
 PP_NextScan = PP_PerUser.scanfreq
 PP_UnitXPDllLoaded = false
 
+PallyPower_CloseButtonTexture = "Interface\\AddOns\\PallyPowerTW\\Icons\\close.tga"
+
 PallyPower_ClassTexture = {}
 PallyPower_ClassTexture[0] = "Interface\\AddOns\\PallyPowerTW\\Icons\\Warrior"
 PallyPower_ClassTexture[1] = "Interface\\AddOns\\PallyPowerTW\\Icons\\Rogue"
@@ -234,12 +236,33 @@ function PallyPower_OnLoad()
     this:RegisterEvent("PLAYER_LOGIN")
     this:RegisterEvent("PARTY_MEMBERS_CHANGED")
     this:RegisterEvent("ADDON_LOADED")
-    --this:RegisterEvent("UI_ERROR_MESSAGE")
-    --this:RegisterEvent("CHAT_MSG_SPELL_FAILED_LOCALPLAYER")
     this:SetBackdropColor(0.0, 0.0, 0.0, 0.5)
     this:SetScale(1)
     SlashCmdList["PALLYPOWER"] = function(msg)
         PallyPower_SlashCommandHandler(msg)
+    end
+	
+	
+
+    -- Custom close button setup
+    local closeButton = getglobal("PallyPowerFrameCloseButton")
+    if closeButton then
+        closeButton:SetNormalTexture(PallyPower_CloseButtonTexture)
+        closeButton:SetHighlightTexture(PallyPower_CloseButtonTexture)
+        closeButton:SetPushedTexture(PallyPower_CloseButtonTexture)
+        closeButton:SetDisabledTexture(PallyPower_CloseButtonTexture)
+        closeButton:SetWidth(14)
+        closeButton:SetHeight(14)
+        
+        -- Clear any existing textures
+        closeButton:GetNormalTexture():SetTexCoord(0, 1, 0, 1)
+        closeButton:GetHighlightTexture():SetTexCoord(0, 1, 0, 1)
+        closeButton:GetPushedTexture():SetTexCoord(0, 1, 0, 1)
+        closeButton:GetDisabledTexture():SetTexCoord(0, 1, 0, 1)
+		
+		-- Move the button to bottom left (adjust the numbers as needed)
+		closeButton:ClearAllPoints()
+		closeButton:SetPoint("TOPRIGHT", PallyPowerFrame, "TOPRIGHT", -8, -8)
     end
 
     --Hide BuffBar if not paladin. You can still see the assignments grid
@@ -2517,6 +2540,8 @@ function PallyPower_BarToggle()
         end
     end
 end
+
+
 
 
 -------local mana = UnitMana("player")
