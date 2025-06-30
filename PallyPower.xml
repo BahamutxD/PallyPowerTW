@@ -21,7 +21,7 @@
 		</Size>
 		<Layers>
 			<Layer level="OVERLAY">
-				<Texture name="$parentIcon" file="Interface\Icons\Spell_Holy_SealOfWisdom">
+				<Texture name="$parentIcon" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_SealOfWisdom">
 					<Size>
 						<AbsDimension x="32" y="32" />
 					</Size>
@@ -73,7 +73,7 @@
 						</Anchor>
 					</Anchors>
 				</FontString>
-				<Texture name="$parentIcon" file="Interface\Icons\Spell_Holy_SealOfWisdom">
+				<Texture name="$parentIcon" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_SealOfWisdom">
 					<Size>
 						<AbsDimension x="12" y="12" />
 					</Size>
@@ -283,7 +283,7 @@
 		<Size>
 			<AbsDimension x="100" y="36" />
 		</Size>
-		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" tile="true">
 			<BackgroundInsets>
 				<AbsInset left="2" right="2" top="3" bottom="2" />
 			</BackgroundInsets>
@@ -291,7 +291,7 @@
 				<AbsValue val="8" />
 			</TileSize>
 			<EdgeSize>
-				<AbsValue val="8" />
+				<AbsValue val="0" />
 			</EdgeSize>
 		</Backdrop>
 		<Layers>
@@ -344,7 +344,7 @@
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<Texture name="$parentBuffIcon" file="Interface\Icons\Spell_Holy_SealOfWisdom">
+				<Texture name="$parentBuffIcon" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_SealOfWisdom">
 					<Size>
 						<AbsDimension x="26" y="26" />
 					</Size>
@@ -381,7 +381,7 @@
 		<Size>
 			<AbsDimension x="100" y="36" />
 		</Size>
-		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" tile="true">
 			<BackgroundInsets>
 				<AbsInset left="2" right="2" top="3" bottom="2" />
 			</BackgroundInsets>
@@ -389,12 +389,12 @@
 				<AbsValue val="8" />
 			</TileSize>
 			<EdgeSize>
-				<AbsValue val="8" />
+				<AbsValue val="0" />
 			</EdgeSize>
 		</Backdrop>
 		<Layers>
 			<Layer level="OVERLAY">
-				<Texture name="$parentBuffIcon" file="Interface\Icons\Spell_Holy_SealOfFury">
+				<Texture name="$parentBuffIcon" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_SealOfFury">
 					<Size>
 						<AbsDimension x="26" y="26" />
 					</Size>
@@ -447,9 +447,9 @@
 						</Anchor>
 					</Anchors>
 				</FontString>
-				<Texture name="$parentIcon0" file="Interface\Icons\Spell_Holy_SealOfWisdom">
+				<Texture name="$parentIcon0" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_SealOfWisdom">
 					<Size>
-						<AbsDimension x="16" y="16" />
+						<AbsDimension x="22" y="22" />
 					</Size>
 					<Anchors>
 						<Anchor point="TOPLEFT">
@@ -459,9 +459,9 @@
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<Texture name="$parentIcon1" file="Interface\Icons\Spell_Holy_FistOfJustice">
+				<Texture name="$parentIcon1" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_FistOfJustice">
 					<Size>
-						<AbsDimension x="16" y="16" />
+						<AbsDimension x="22" y="22" />
 					</Size>
 					<Anchors>
 						<Anchor point="TOPLEFT">
@@ -471,9 +471,9 @@
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<Texture name="$parentIcon2" file="Interface\Icons\Spell_Holy_SealOfSalvation">
+				<Texture name="$parentIcon2" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_SealOfSalvation">
 					<Size>
-						<AbsDimension x="16" y="16" />
+						<AbsDimension x="22" y="22" />
 					</Size>
 					<Anchors>
 						<Anchor point="TOPLEFT">
@@ -483,74 +483,74 @@
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<Texture name="$parentIcon3" file="Interface\Icons\Spell_Holy_PrayerOfHealing02">
+				<Texture name="$parentIcon3" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_PrayerOfHealing02">
 					<Size>
-						<AbsDimension x="16" y="16" />
+						<AbsDimension x="22" y="22" />
 					</Size>
 					<Anchors>
 						<Anchor point="TOPLEFT">
 							<Offset>
-								<AbsDimension x="0" y="-36" />
+								<AbsDimension x="0" y="-40" />
 							</Offset>
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<Texture name="$parentIcon4" file="Interface\Icons\Spell_Magic_MageArmor">
+				<Texture name="$parentIcon4" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Magic_MageArmor">
 					<Size>
-						<AbsDimension x="16" y="16" />
+						<AbsDimension x="22" y="22" />
 					</Size>
 					<Anchors>
 						<Anchor point="TOPLEFT">
 							<Offset>
-								<AbsDimension x="40" y="-36" />
+								<AbsDimension x="40" y="-40" />
 							</Offset>
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<Texture name="$parentIcon5" file="Interface\Icons\Spell_Nature_LightningShield">
+				<Texture name="$parentIcon5" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Nature_LightningShield">
 					<Size>
-						<AbsDimension x="16" y="16" />
+						<AbsDimension x="22" y="22" />
 					</Size>
 					<Anchors>
 						<Anchor point="TOPLEFT">
 							<Offset>
-								<AbsDimension x="80" y="-36" />
+								<AbsDimension x="80" y="-40" />
 							</Offset>
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<Texture name="$parentIcon6" file="Interface\Icons\Spell_Holy_DevotionAura">
+				<Texture name="$parentIcon6" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_DevotionAura">
 					<Size>
-						<AbsDimension x="16" y="16" />
+						<AbsDimension x="22" y="22" />
 					</Size>
 					<Anchors>
 						<Anchor point="TOPLEFT">
 							<Offset>
-								<AbsDimension x="0" y="-56" />
+								<AbsDimension x="0" y="-64" />
 							</Offset>
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<Texture name="$parentIcon7" file="Interface\Icons\Spell_Holy_AuraOfLight">
+				<Texture name="$parentIcon7" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_AuraOfLight">
 					<Size>
-						<AbsDimension x="16" y="16" />
+						<AbsDimension x="22" y="22" />
 					</Size>
 					<Anchors>
 						<Anchor point="TOPLEFT">
 							<Offset>
-								<AbsDimension x="40" y="-56" />
+								<AbsDimension x="40" y="-64" />
 							</Offset>
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<Texture name="$parentIcon8" file="Interface\Icons\Spell_Holy_MindSooth">
+				<Texture name="$parentIcon8" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_MindSooth">
 					<Size>
-						<AbsDimension x="16" y="16" />
+						<AbsDimension x="22" y="22" />
 					</Size>
 					<Anchors>
 						<Anchor point="TOPLEFT">
 							<Offset>
-								<AbsDimension x="80" y="-56" />
+								<AbsDimension x="80" y="-64" />
 							</Offset>
 						</Anchor>
 					</Anchors>
@@ -902,6 +902,17 @@
 		<Anchors>
 			<Anchor point="LEFT" />
 		</Anchors>
+		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="5" right="5" top="5" bottom="5" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="16" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="0" />
+			</EdgeSize>
+		</Backdrop>
 		<Frames>
 			<Button name="$parentTitle">
 				<Size>
@@ -1064,6 +1075,9 @@
 			</Button>
 		</Frames>
 		<Scripts>
+			<OnLoad>
+				this:SetBackdropColor(0, 0, 0, 1);
+			</OnLoad>
 			<OnUpdate>
 				PallyPower_OnUpdate(arg1);
 			</OnUpdate>
@@ -1073,14 +1087,7 @@
 		<Size>
 			<AbsDimension x="1050" y="980" />
 		</Size>
-		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="UIParent" relativePoint="BOTTOMLEFT">
-				<Offset>
-					<AbsDimension x="400" y="400" />
-				</Offset>
-			</Anchor>
-		</Anchors>
-		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" tile="true">
 			<BackgroundInsets>
 				<AbsInset left="5" right="5" top="5" bottom="5" />
 			</BackgroundInsets>
@@ -1088,9 +1095,16 @@
 				<AbsValue val="16" />
 			</TileSize>
 			<EdgeSize>
-				<AbsValue val="16" />
+				<AbsValue val="0" />
 			</EdgeSize>
 		</Backdrop>
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="UIParent" relativePoint="BOTTOMLEFT">
+				<Offset>
+					<AbsDimension x="400" y="400" />
+				</Offset>
+			</Anchor>
+		</Anchors>
 		<Layers>
 			<Layer>
 				<Texture name="$parentLineA" file="Interface\Tooltips\UI-Tooltip-Background">
@@ -1225,7 +1239,7 @@
 						</Anchor>
 					</Anchors>
 				</Texture>
-				<Texture name="$parentClassA" file="Interface\Icons\Spell_Holy_AuraMastery">
+				<Texture name="$parentClassA" file="Interface\AddOns\PallyPowerTW\Icons\Spell_Holy_AuraMastery">
 					<Size>
 						<AbsDimension x="32" y="32" />
 					</Size>
@@ -1716,6 +1730,7 @@
 		</Frames>
 		<Scripts>
 			<OnLoad>
+				this:SetBackdropColor(0, 0, 0, 1);
 				PallyPower_OnLoad();
 			</OnLoad>
 			<OnEvent>
@@ -1750,7 +1765,7 @@
 				</Offset>
 			</Anchor>
 		</Anchors>
-		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+		<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" tile="true">
 			<BackgroundInsets>
 				<AbsInset left="5" right="5" top="5" bottom="5" />
 			</BackgroundInsets>
@@ -1758,7 +1773,7 @@
 				<AbsValue val="16" />
 			</TileSize>
 			<EdgeSize>
-				<AbsValue val="16" />
+				<AbsValue val="0" />
 			</EdgeSize>
 		</Backdrop>
 		<Layers>
@@ -2308,7 +2323,7 @@
 		</Frames>
 		<Scripts>
 			<OnLoad>
-				this:SetBackdropColor(0.0, 0.0, 0.0, 0.5);
+				this:SetBackdropColor(0, 0, 0, 1);
 			</OnLoad>
 		</Scripts>
 	</Frame>
