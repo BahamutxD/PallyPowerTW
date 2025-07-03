@@ -44,8 +44,6 @@ PP_PerUser = {
 PP_NextScan = PP_PerUser.scanfreq
 PP_UnitXPDllLoaded = false
 
-PallyPower_CloseButtonTexture = "Interface\\AddOns\\PallyPowerTW\\Icons\\close.tga"
-
 PallyPower_ClassTexture = {}
 PallyPower_ClassTexture[0] = "Interface\\AddOns\\PallyPowerTW\\Icons\\Warrior"
 PallyPower_ClassTexture[1] = "Interface\\AddOns\\PallyPowerTW\\Icons\\Rogue"
@@ -67,11 +65,6 @@ for iinit = 0, 9 do
     LastCastOn[iinit] = {}
 end
 
--- Backup tables for rollback when targeting failed
---LastCastBackup = {}
---LastCastPlayerBackup = {}
---LastCastOnBackup = {}
-
 PP_Symbols = 0
 IsPally = 0
 lastClassBtn = 1
@@ -88,15 +81,9 @@ PP_ScanInfo = nil
 local RestorSelfAutoCastTimeOut = 1
 local RestorSelfAutoCast = false
 
-function PallyPower_RegularBlessings()
-    return
-    --[[if (RegularBlessingChk:GetChecked() == 1) then
-        PP_PerUser.regularblessings = true
-        PallyPower_OnEvent("SPELLS_CHANGED")
-    else
-        PP_PerUser.regularblessings = false
-        PallyPower_OnEvent("SPELLS_CHANGED")
-    end]]
+-- Fix Shagu Tweaks displays error when trying to display boolean values
+print = function(msg)
+  DEFAULT_CHAT_FRAME:AddMessage("|cffffff00" .. ( tostring(msg) or "nil" ))
 end
 
 function PallyPower_FramesLockedOption()
@@ -241,29 +228,6 @@ function PallyPower_OnLoad()
     SlashCmdList["PALLYPOWER"] = function(msg)
         PallyPower_SlashCommandHandler(msg)
     end
-	
-	
-
-    -- Custom close button setup
-    local closeButton = getglobal("PallyPowerFrameCloseButton")
-    if closeButton then
-        closeButton:SetNormalTexture(PallyPower_CloseButtonTexture)
-        closeButton:SetHighlightTexture(PallyPower_CloseButtonTexture)
-        closeButton:SetPushedTexture(PallyPower_CloseButtonTexture)
-        closeButton:SetDisabledTexture(PallyPower_CloseButtonTexture)
-        closeButton:SetWidth(14)
-        closeButton:SetHeight(14)
-        
-        -- Clear any existing textures
-        closeButton:GetNormalTexture():SetTexCoord(0, 1, 0, 1)
-        closeButton:GetHighlightTexture():SetTexCoord(0, 1, 0, 1)
-        closeButton:GetPushedTexture():SetTexCoord(0, 1, 0, 1)
-        closeButton:GetDisabledTexture():SetTexCoord(0, 1, 0, 1)
-		
-		-- Move the button to bottom left (adjust the numbers as needed)
-		closeButton:ClearAllPoints()
-		closeButton:SetPoint("TOPRIGHT", PallyPowerFrame, "TOPRIGHT", -8, -8)
-    end
 
     --Hide BuffBar if not paladin. You can still see the assignments grid
     local _, class = UnitClass("player")
@@ -393,15 +357,6 @@ function PallyPower_OnEvent(event,arg1)
         PallyPower_MinimapButton_Init();
         PallyPower_InitConfig();              
     end
-
-    --[[if event == "UI_ERROR_MESSAGE" then 
-        if arg1 == SPELL_FAILED_LINE_OF_SIGHT or 
-           arg1 == SPELL_FAILED_NOT_STANDING then
-            LastCast = LastCastBackup
-            LastCastPlayer = LastCastPlayerBackup
-            LastCastOn = LastCastOnBackup            
-        end
-    end]]
 end
 
 function PallyPower_SlashCommandHandler(msg)
@@ -843,7 +798,7 @@ function PallyPower_UpdateUI()
         local testUnitBuff
         for i = 1,40 do 
             testUnitBuff = UnitBuff("player",i) 
-            if (testUnitBuff and testUnitBuff == BuffIcon[9]) then 
+            if (testUnitBuff and testUnitBuff == string.gsub(BuffIcon[9],"AddOns\\PallyPowerTW\\","")) then 
                 PallyPowerBuffBarRF:SetBackdropColor(0.0, 1.0, 0.0, 0.5)
                 break
             end 
@@ -854,7 +809,7 @@ function PallyPower_UpdateUI()
             getglobal("PallyPowerBuffBarAuraBuffIcon"):SetTexture(AuraIcons[PallyPower_AuraAssignments[namePlayer]])
             for i=1,40 do 
                 testUnitBuff = UnitBuff("player",i) 
-                if (testUnitBuff and testUnitBuff == AuraIcons[PallyPower_AuraAssignments[namePlayer]]) then 
+                if (testUnitBuff and testUnitBuff == string.gsub(AuraIcons[PallyPower_AuraAssignments[namePlayer]],"AddOns\\PallyPowerTW\\","")) then 
                     PallyPowerBuffBarAura:SetBackdropColor(0.0, 1.0, 0.0, 0.5)
                     break
                 end 
@@ -1004,7 +959,7 @@ function PallyPower_ScanSpells()
             break
         end
 
-        if spellTexture == BuffIcon[9] then
+        if spellTexture == string.gsub(BuffIcon[9],"AddOns\\PallyPowerTW\\","") then
             hasRighteousFury = true
             nameRighteousFury = spellName
         end
@@ -2002,13 +1957,13 @@ end
 
 function PallyPower_GetBuffTextureID(text)
     for id, name in BuffIcon do
-        if (name == text) then
+        if (string.gsub(name,"AddOns\\PallyPowerTW\\","") == text) then
             return id
         end
     end
     -- Check also the small buffs
     for id, name in BuffIconSmall do
-        if (name == text) then
+        if (string.gsub(name,"AddOns\\PallyPowerTW\\","") == text) then
             return id
         end
     end
@@ -2054,10 +2009,6 @@ function PallyPowerBuffButton_OnClick(btn, mousebtn)
     DoEmote("STAND") -- Force player stand
 
     ClearTarget()
-
-    --LastCastBackup = LastCast
-    --LastCastPlayerBackup = LastCastPlayer
-    --LastCastOnBackup = LastCastOn       
 
     if AllPallys[UnitName("player")][btn.buffID] == nil then return end
     PP_Debug("Casting " .. btn.buffID .. " on " .. btn.classID)
@@ -2131,6 +2082,8 @@ function PallyPowerBuffButton_OnClick(btn, mousebtn)
                     else
                         if LastCast[btn.buffID .. btn.classID] == nil or LastCast[btn.buffID .. btn.classID] < PALLYPOWER_NORMALBLESSINGDURATION then 
                             LastCast[btn.buffID .. btn.classID] = PALLYPOWER_NORMALBLESSINGDURATION
+                        elseif LastCast[btn.buffID .. btn.classID] ~= nil and LastCast[btn.buffID .. btn.classID] > PALLYPOWER_NORMALBLESSINGDURATION and mousebtn == "RightButton" then 
+                            LastCastPlayer[stats.name] = PALLYPOWER_NORMALBLESSINGDURATION
                         end
                         if blessing ~= -1 and mousebtn == "RightButton" then
                             LastCastPlayer[stats.name] = PALLYPOWER_NORMALBLESSINGDURATION
@@ -2215,10 +2168,6 @@ function PallyPower_AutoBless(mousebutton)
     
         ClearTarget()
         
-        --LastCastBackup = LastCast
-        --LastCastPlayerBackup = LastCastPlayer
-        --LastCastOnBackup = LastCastOn      
-
         if AllPallys[UnitName("player")][btn.buffID] == nil then 
             lastClassBtn = lastClassBtn + 1
             -- classID == 9 is for pets
@@ -2299,6 +2248,8 @@ function PallyPower_AutoBless(mousebutton)
                             else
                                 if LastCast[btn.buffID .. btn.classID] == nil or LastCast[btn.buffID .. btn.classID] < PALLYPOWER_NORMALBLESSINGDURATION then 
                                     LastCast[btn.buffID .. btn.classID] = PALLYPOWER_NORMALBLESSINGDURATION
+                                elseif LastCast[btn.buffID .. btn.classID] ~= nil and LastCast[btn.buffID .. btn.classID] > PALLYPOWER_NORMALBLESSINGDURATION and mousebtn == "Hotkey1" then 
+                                    LastCastPlayer[stats.name] = PALLYPOWER_NORMALBLESSINGDURATION
                                 end
                                 if blessing ~= -1 and mousebutton == "Hotkey1" then
                                     LastCastPlayer[stats.name] = PALLYPOWER_NORMALBLESSINGDURATION
@@ -2540,8 +2491,3 @@ function PallyPower_BarToggle()
         end
     end
 end
-
-
-
-
--------local mana = UnitMana("player")
